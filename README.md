@@ -4,7 +4,7 @@
 
 It detects deadlocks caused by improper mutex lock order.
 
-No `#include`s or extra dependencies are required - all you have to do is `LD_PRELOAD` the sanitizer. See the usage example below.
+No `#include`s or extra dependencies are required - all you have to do is `LD_PRELOAD` the sanitizer. See the example below.
 
 Supports C/C++ (and might also languages like Rust, Zig, etc.) programs - all as long as they use `pthread` - either explicitly (`#include <pthread.h>`) or implicitly (e.g. `std::mutex` on my machine uses `pthread` under the hood).
 
