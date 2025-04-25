@@ -35,14 +35,14 @@ run-tests:
 build-tests:
 	$(CXX) $(TEST_SRCS) -I $(SRC_DIR) -I $(TEST_DIR) -I $(DOCTEST_DIR) -std=c++17 -ldl -g -O3 -Werror -Wall -Wextra -pthread -pedantic -o $(TEST_TARGET)
 
-.PHONY: clang-format
-clang-format:
-	diff -u <(cat $(FILES_TO_LINT)) <(clang-format $(FILES_TO_LINT))
-
 .PHONY: build-examples
 build-examples:
 	$(CXX) -rdynamic -o $(EXAMPLES_DIR)/cpp-cycle-example.elf $(EXAMPLES_DIR)/cpp-cycle-example.cpp
 	$(CC) -rdynamic -o $(EXAMPLES_DIR)/c-cycle-example.elf $(EXAMPLES_DIR)/c-cycle-example.c
+
+.PHONY: clang-format
+clang-format:
+	diff -u <(cat $(FILES_TO_LINT)) <(clang-format $(FILES_TO_LINT))
 
 .PHONY: clang-format-fix
 clang-format-fix:
